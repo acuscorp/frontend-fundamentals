@@ -1,10 +1,12 @@
-* {
-  margin: 0%;
-  padding: 0%;
-}
+@import "variables/variables";
+@import "./resets/resets";
+@import "./mixin/mixin.scss";
 
+// @function getSize(){
+
+// }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: $roboto;
   height: 90vh;
   overflow-y: hidden;
 }
@@ -19,20 +21,18 @@ body {
   height: 70vh;
   background-repeat: no-repeat;
   background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include display(flex,center,center);
   flex-direction: column;
   text-align: center;
-  color: #ffffff ;
+  color: $color-homeCover ;
   
 
 }
 .text-shadow{
-  text-shadow: 1px 1px 4px rgb(31, 29, 29);
+  text-shadow: $paddingBase/20 $paddingBase/20 $paddingBase/5 $textShadow;
 }
 .title-font{
-  font-size: 30px;
+  font-size: $titleFont;
 }
 .title-font::first-letter{
   font-size: 120%;
@@ -40,26 +40,24 @@ body {
 /*margenes reutilizables*/
 
 .margin-bottom-sm{
-  margin-bottom: 15px;
+  margin-bottom: $marginBottonSm;
 }
 
 .margin-bottom-md{
-  margin-bottom: 30px;
+  margin-bottom: $marginBottonMd;
 }
 
 .subtitle-font{
-  font-size: 20px;
+  font-size: $fontSubtitle;
 }
 
 .searchbar{
-  background-color: #ffffff;
-  padding-left: 10px;
-  padding: 3px;
-  width: 500px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 14px 14px 28px rgb(31, 29, 29);
+  background-color: $bgColor;
+  padding-left: $paddingBase/2;
+  padding: $paddingBase/20*3;
+  width: $paddingBase/25;
+  @include display(flex,space-between,center);
+  box-shadow: $boxShadowPx $boxShadowPx $boxShadowPx $colorboxShadow;
   border-radius: 5px;
   margin: 0 auto;
 }
@@ -75,21 +73,20 @@ body {
 .search-button{
   height: 45px;
   width: 45px;
-  background-color: #3e3e48;
-  color: white;
+  background-color: $bgcolorSearchBotton;
+  color: $search-botton;
   border-radius: 5px;
 
 }
 .search-button:hover{
 
-  background-color: rgb(31, 29, 29);
+  background-color:$bgColorSearchBottonHover;
   color: red;
 }
 #icon-container{
   margin-top: 3rem;
   width: 100%;
-  display: flex;
-  justify-content: space-around;
+  @include display(flex,space-around,center);
 }
 section#icon-container>i{
   font-size: 3rem;
@@ -97,14 +94,12 @@ section#icon-container>i{
 }
 .contenerdor-footer{
   margin-top: 5vh;
-  background-color: rgb(31, 29, 29);
-  display: flex;
+  background-color:$bgColorFooterContainer;
+  @include display(flex,space-evenly,center);
   height: 25vh;
-  align-items: center;
-  justify-content: space-evenly;
 }
 .footer-lista{
-  color: #ffffff;
+  color:$colorFotterLista;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .redes-sociales>a{
